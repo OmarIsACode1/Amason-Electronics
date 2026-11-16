@@ -1,4 +1,6 @@
 // Importamos la librería Express
+require('dotenv').config();
+const conectarDB = require('./config/database');
 const express = require('express');
 
 // Creamos la aplicación de Express
@@ -16,6 +18,11 @@ app.get('/', (req, res) => {
 });
 
 // Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
-});
+const iniciarServidor = async () => {
+    await conectarDB();
+
+    app.listen(PORT, () => {
+        console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+    });
+};
+iniciarServidor();
