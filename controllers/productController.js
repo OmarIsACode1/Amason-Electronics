@@ -50,6 +50,46 @@ const obtenerProductos = async (req, res) => {
     }
 };
 
+// ACTUALIZAR PRODUCTO
+const actualizarProducto = async (req, res) => {
+    try {
+        const {nombre, descripcion, precio, existencias } = req.body;
+        const productoActualizado = await Product.findOneAndUpdate( // Método para buscar documento que cumpla ambas condiciones para actualizar
+            {
+                _id: req.params.id,
+                usuario: req.usuario.id
+            },
+            {
+                nombre,
+                descripcion,
+                precio,
+                existencias
+            },
+            {
+                new: true,
+                runValidators: true
+            }
+        );
+
+        if (!productoActualizado) {
+            return res.status(404).json({
+                mensaje: 'Producto no encontrado o no tienes permiso para modificarlo'
+            });
+        }
+
+        res.status(200).json({
+            mensaje: 'Producto actualizado correctamente',
+            producto: productoActualizado
+        });
+    } catch (error) {
+        console.error('Error al actualizar producto:', error.message);
+
+        res.status(500).json({
+            mensaje: 'Error interno al actualizar el producto'
+        });
+    }
+};
+
 module.exports={
-    crearProducto, obtenerProductos
+    crearProducto, obtenerProductos, actualizarProducto
 };

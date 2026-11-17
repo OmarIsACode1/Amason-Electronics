@@ -3,7 +3,7 @@ const router = express.Router();
 
 const verificarToken = require('../middleware/authMiddleware');
 
-const { crearProducto, obtenerProductos } = require('../controllers/productController');
+const { crearProducto, obtenerProductos, actualizarProducto } = require('../controllers/productController');
 
 // Todas las rutas de este archivo requieren autenticación
 router.use(verificarToken);
@@ -13,5 +13,8 @@ router.post('/', crearProducto);
 
 // Consultar producto
 router.get('/', obtenerProductos);
+
+// Actualizar producto
+router.put('/:id', actualizarProducto);
 
 module.exports = router;
