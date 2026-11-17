@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 // Definimos los datos de cada Usuario
 const userSchema = new mongoose.Schema({
     nombre: {
