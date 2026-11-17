@@ -90,6 +90,33 @@ const actualizarProducto = async (req, res) => {
     }
 };
 
+// ELIMINAR PRODUCTO
+const eliminarProducto = async (req, res) => {
+    try {
+        const productoEliminado = await Product.findOneAndDelete({
+            _id: req.params.id, // Se comprueba el id de producto y usuario para eliminar
+            usuario: req.usuario.id
+        });
+
+        if (!productoEliminado) {
+            return res.status(404).json({
+                mensaje: 'Producto no encontrado o no tienes permiso para eliminarlo'
+            });
+        }
+
+        res.status(200).json({
+            mensaje: 'Producto eliminado correctamente',
+            producto: productoEliminado
+        });
+    } catch (error) {
+        console.error('Error al eliminar producto:', error.message);
+
+        res.status(500).json({
+            mensaje:'Error interno al eliminar el producto'
+        });
+    }
+};
+
 module.exports={
-    crearProducto, obtenerProductos, actualizarProducto
+    crearProducto, obtenerProductos, actualizarProducto, eliminarProducto
 };
