@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amason Electronics | Productos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pagina-productos">
+    <main class="productos-container">
+        <header class="productos-header">
+            <div>
+                <h1>Amason Electronics</h1>
+                <p>Gestión de productos</p>
+            </div>
+
+            <button type="button" id="btn-logout" class="btn-logout">
+                Cerrar sesión
+            </button>
+        </header>
+
+        <section class="producto-formulario">
+            <h2 id="titulo-formulario">Registrar producto</h2>
+            <form id="form-producto">
+                <div class="form-group">
+                    <label for="nombre">Nombre del producto</label>
+                    <input type="text" id="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" id="descripcion" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" min="0" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="existencias">Existencias</label>
+                    <input type="number" id="existencias" min="0" step="1" required>
+                </div>
+
+                <button type="submit" id="btn-guardar">
+                    Registrar producto
+                </button>
+
+                <button type="button" id="btn-cancelar" class="btn-cancelar" hidden>
+                    Cancelar edición
+                </button>
+                <p id="mensaje-producto"></p>
+            </form>
+        </section>
+
+        <section class="productos-lista">
+            <h2>Inventario de productos</h2>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Existencias</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="lista-productos">
+                        <!-- Los productos se cargarán mediante JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <p id="mensaje-lista"></p>
+        </section>
+    </main>
+    <script src="js/productos.js"></script>
+</body>
+</html>

@@ -97,3 +97,136 @@ button:hover {
     margin-top: 15px;
     font-size: 14px;
 }
+
+/* PANEL DE PRODUCTOS */
+
+body.pagina-productos {
+    display: block;
+    min-height: 100vh;
+    padding: 30px 20px;
+}
+
+.productos-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.productos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.productos-header h1 {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.productos-header p {
+    color: #cbd5e1;
+    margin-top: 5px;
+}
+
+.btn-logout {
+    width: auto;
+    background-color: #dc2626;
+    padding: 12px 20px;
+}
+
+.btn-logout:hover {
+    background-color: #b91c1c;
+}
+
+.producto-formulario,
+.productos-lista {
+    background-color: #ffffff;
+    color: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.producto-formulario h2,
+.productos-lista h2 {
+    margin-bottom: 20px;
+    color: #1e40af;
+}
+
+#form-producto {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+#form-producto .form-group {
+    margin-bottom: 0;
+}
+
+#form-producto button {
+    align-self: end;
+}
+
+.btn-cancelar {
+    background-color: #64748b;
+}
+
+.btn-cancelar:hover {
+    background-color: #475569;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #eff6ff;
+    color: #1e40af;
+}
+
+.btn-editar,
+.btn-eliminar {
+    width: auto;
+    padding: 8px 12px;
+    margin: 3px;
+    font-size: 13px;
+}
+
+.btn-editar {
+    background-color: #2563eb;
+}
+
+.btn-eliminar {
+    background-color: #dc2626;
+}
+
+@media (max-width: 650px) {
+    #form-producto {
+        grid-template-columns: 1fr;
+    }
+
+    .productos-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .producto-formulario,
+    .productos-lista {
+        padding: 18px;
+    }
+}
