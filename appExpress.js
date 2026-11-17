@@ -13,7 +13,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 
 app.get('/', (req, res) => {
-    res.send('Bienvenido a Amason Electronics');
+    res.redirect('/login.html');
 });
 
 module.exports = app;
