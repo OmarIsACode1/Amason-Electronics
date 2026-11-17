@@ -9,11 +9,16 @@ const productRoutes = require('./routes/productRoutes');
 // Creamos la aplicación de Express
 const app = express();
 
+// Servir archivos estáticos desde la carpeta public
+app.use(express.static('public'));
+
 // Permitir que Express interprete solicitudes JSON
 app.use(express.json());
 
-// Rutas de autenticación
+// Ruta de autenticación
 app.use('/api/auth', authRoutes);
+
+// Ruta de productos
 app.use('/api/products', productRoutes);
 
 // Definimos el puerto del servidor
