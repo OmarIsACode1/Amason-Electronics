@@ -3,7 +3,8 @@ require('dotenv').config();
 
 const conectarDB = require('./config/database');
 const express = require('express');
-authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 // Creamos la aplicación de Express
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 
 // Rutas de autenticación
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 // Definimos el puerto del servidor
 const PORT = 3000;
