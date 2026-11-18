@@ -14,7 +14,7 @@ RUN npm ci --omit=dev
 COPY . .
 
 # Puerto de la aplicación
-EXPOSE 3000
+EXPOSE 10000
 
 # Iniciar el servidor
 CMD ["npm", "start"]
