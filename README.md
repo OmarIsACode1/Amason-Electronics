@@ -67,7 +67,7 @@ En la carpeta principal del proyecto se debe crear un archivo llamado `.env`.
 Agregar las siguientes variables:
 
 ```env
-MONGODB_URI=mongodb+srv://al07190824_db_user:vyssoK-0dyvbi@clusteractividad2.7sqpuzf.mongodb.net/amason-electronics
+MONGODB_URI=tu_uri_de_mongodb
 JWT_SECRET=tu_clave_secreta
 JWT_EXPIRES_IN=1d
 ```
